@@ -1,0 +1,26 @@
+# Legal Document Review Agent - Hybrid RAG (100% free, local stack)
+# Python 3.10+ recommended.
+
+# --- LlamaIndex (OSS orchestration) ---
+llama-index-core>=0.12.0
+llama-index-readers-file>=0.4.0
+llama-index-embeddings-huggingface>=0.5.0
+llama-index-vector-stores-chroma>=0.4.0
+llama-index-retrievers-bm25>=0.5.0
+
+# --- Vector store + models (free, local) ---
+chromadb>=0.5.0
+sentence-transformers>=2.7.0
+torch>=2.2.0
+pypdf>=4.0.0
+
+# --- Data prep (PDF generation) ---
+fpdf2>=2.7.0
+
+# --- UI + ROI ---
+streamlit>=1.32.0
+pandas>=2.0.0
+openpyxl>=3.1.0
+
+# --- Optional: local LLM answer synthesis (set USE_OLLAMA=1) ---
+# llama-index-llms-ollama>=0.5.0
