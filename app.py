@@ -91,10 +91,13 @@ def render_sidebar() -> int:
     st.sidebar.write(f"LLM synthesis: {'Ollama' if config.USE_OLLAMA else 'off (extractive)'}")
 
     st.sidebar.divider()
+    if "flash" in st.session_state:
+        st.sidebar.success(st.session_state.pop("flash"))
     if st.sidebar.button("Step 1: Generate contracts", use_container_width=True):
         with st.spinner("Generating contract PDFs..."):
             count = run_data_prep()
-        st.sidebar.success(f"Generated {count} contracts.")
+        st.session_state["flash"] = f"Generated {count} contracts."
+        st.rerun()  # refresh so Step 2 sees the new PDFs and becomes enabled
 
     if st.sidebar.button("Step 2: Build / rebuild index", use_container_width=True, disabled=not n_pdfs):
         with st.spinner("Chunking, embedding, and indexing into ChromaDB..."):

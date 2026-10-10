@@ -1,0 +1,5 @@
+.venv/
+chroma_db/
+storage/
+legal_dummy_contracts/
+__pycache__/
